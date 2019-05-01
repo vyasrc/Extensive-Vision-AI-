@@ -2,6 +2,13 @@
 
 What are Channels and Kernels (according to EVA)?
 
+Channel -  Channel here are features that can be contained as a one single feature such as red, blue etc. An image can divided into as many channels as we want, but we have to be able to create back the original image from it. If we combine a unique feature in a image together we can form a channel of that feature. For an image that consists of text , we use 26 channels , because we have 26 alphabets. Every unique channel has its own use. We cant expect a different type of feature from a channel of a specific feature. From basic fundemental channels, we can build complex channels.
+Kernels -  It is a feature extracter , a sinlge feature inside a channel can be called as a kernel. It is also a 3x3 matrix and also it is known by the name filter. Kernels make up channels. The horizintal and vertical lines in a digit can be called as kernels and combining them we get channels.
+
 Why should we only (well mostly) use 3x3 Kernels?
 
+Mainly because it is highly optimized. We dont use even numbers because we do not have a middle , so we cant talk about left or right. So we need to have odd numbers.   Whenever we convolve a receptive field of n x n by 3x3 we always get n-2 x n-2. and suppose we convolve a n x n receptive field with a n x n fliter , then we get a 1x1 result , this can also be achieved by using a 3x3 filter a finite number of times. Nvidia and Intel has optimsed this value of 3x3 , thus fliters with 3x3 will run faster than any other fliter sizes in a GPU.  
+
 How many times do we need to perform 3x3 convolution operation to reach 1x1 from 199x199 (show calculations)
+
+
