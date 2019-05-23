@@ -1,0 +1,27 @@
+1. Image normalization(Pixel Normalization):-
+Pixels are normalized between 0 and 1 before the model is defined.
+2. How many layers:-
+Determine the number of convolution layers required , so that the global receptive field is same as the sixze of the object, which in some cases will be the whole image or not.
+3. Receptive Field :-  
+The global receptive field should be equal to the object size , which sometimes may be the whole image or not.
+4. Maxpooling:- 
+Maxpooling is the used when we need to reduce the spatial size of the input image inorder to reduce the amount of parameters and computation in the network. 
+5. Position of Maxpooling:-
+This layer is usually used after the convloution layer from which features/edges/gradients/parts of objects are extracted.
+6. 3x3 Convolutions :- 
+3x3 convolutions is standardised across GPUs , so it is used in all convolutional layers.
+7. 1x1 Convolutions :-
+1x1 Convolutions are used to reduce the number of channels, to reduce the number of parameters in the network and it is usually used after each Maxpooling layer.
+8. Concept of Transition Layers:- 
+Transition Layers are the layers are used to reduce the number of channels, by using 1x1 convolutions.
+9. Position of Transition Layer:- 
+Usually the transition layer is positioned after a Maxpooling layer in a network or it can be placed anywhere according to the requirement in the network.
+10. The distance of MaxPooling from Prediction:
+The output prediction will always be 2-3 convolutions away from the last maxpooling layer.
+11. Softmax :- 
+Softmax is used in classification problems, where it outputs the probablity range.It is not used in face recognition, or medical purposes , where it is not suitable.
+12. When do we stop convolutions and go ahead with a larger kernel or some other alternative (which we have not yet covered):- 
+When the desired receptive field , that covers the size of image, is obtained , convolutions can be stopped and some alternative methods can be used like global average pooling and also using a lagre kernel size.
+13. Kernels and how do we decide the number of kernels? :-
+14. How do we know our network is not going well, comparatively, very early :-
+
