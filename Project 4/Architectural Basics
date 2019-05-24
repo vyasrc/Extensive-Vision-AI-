@@ -23,5 +23,8 @@ Softmax is used in classification problems, where it outputs the probablity rang
 12. When do we stop convolutions and go ahead with a larger kernel or some other alternative (which we have not yet covered):- 
 When the desired receptive field , that covers the size of image, is obtained , convolutions can be stopped and some alternative methods can be used like global average pooling and also using a lagre kernel size.
 13. Kernels and how do we decide the number of kernels? :-
+At first we start off 32 kernels in the first layer, and then slowly increase the number of kernels each layer , and after transition layer, the number of channels is again reduced. The final number of kernels can be large varying from 512 to 2048 depending the GPU power. The number 32 can also be increased or decreased depending on the requiremnt of parameters and GPU power. After this , the model is run for the first time and the training accuracy of first 4 epochs is noted, and now change the number of kernels in any layer , and by running the subsequent models , if the accuracy of the first 4 epochs is less the original network then that will not more efficient than the first one, but if the accuracy increases, then that model can used.
 14. How do we know our network is not going well, comparatively, very early :-
+The network obtained by changing the number of kernels and not getting the training accuracy of the first 4 epochs of the prevoius model , then the network is not going well.
+
 
