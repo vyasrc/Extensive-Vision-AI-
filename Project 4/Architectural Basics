@@ -1,0 +1,53 @@
+1. Image normalization(Pixel Normalization):-
+Pixels are normalized between 0 and 1 before the model is defined.
+2. How many layers:-
+Determine the number of convolution layers required , so that the global receptive field is same as the sixze of the object, which in some cases will be the whole image or not.
+3. Receptive Field :-  
+The global receptive field should be equal to the object size , which sometimes may be the whole image or not.
+4. Maxpooling:- 
+Maxpooling is the used when we need to reduce the spatial size of the input image inorder to reduce the amount of parameters and computation in the network. 
+5. Position of Maxpooling:-
+This layer is usually used after the convloution layer from which features/edges/gradients/parts of objects are extracted.
+6. 3x3 Convolutions :- 
+3x3 convolutions is standardised across GPUs , so it is used in all convolutional layers.
+7. 1x1 Convolutions :-
+1x1 Convolutions are used to reduce the number of channels, to reduce the number of parameters in the network and it is usually used after each Maxpooling layer.
+8. Concept of Transition Layers:- 
+Transition Layers are the layers are used to reduce the number of channels, by using 1x1 convolutions.
+9. Position of Transition Layer:- 
+Usually the transition layer is positioned after a Maxpooling layer in a network or it can be placed anywhere according to the requirement in the network.
+10. The distance of MaxPooling from Prediction:
+The output prediction will always be 2-3 convolutions away from the last maxpooling layer.
+11. Softmax :- 
+Softmax is used in classification problems, where it outputs the probablity range.It is not used in face recognition, or medical purposes , where it is not suitable.
+12. When do we stop convolutions and go ahead with a larger kernel or some other alternative (which we have not yet covered):- 
+When the desired receptive field , that covers the size of image, is obtained , convolutions can be stopped and some alternative methods can be used like global average pooling and also using a lagre kernel size.
+13. Kernels and how do we decide the number of kernels? :-
+At first we start off 32 kernels in the first layer, and then slowly increase the number of kernels each layer , and after transition layer, the number of channels is again reduced. The final number of kernels can be large varying from 512 to 2048 depending the GPU power. The number 32 can also be increased or decreased depending on the requiremnt of parameters and GPU power. After this , the model is run for the first time and the training accuracy of first 4 epochs is noted, and now change the number of kernels in any layer , and by running the subsequent models , if the accuracy of the first 4 epochs is less the original network then that will not more efficient than the first one, but if the accuracy increases, then that model can used.
+14. How do we know our network is not going well, comparatively, very early :-
+The network obtained by changing the number of kernels and not getting the training accuracy of the first 4 epochs of the prevoius model, then the network is not going well.
+15. Batch Normalization :-
+The batch normalization is used to normalize the layer by adjusting and scaling the activations. It can be used after each convolution layer.
+16. The distance of Batch Normalization from Prediction :- 
+Batch normalization shoud not be used just before the output layer , that is the prediction. It will reduce the accuracy as it normalises all the input values passed to the prediction layer, making it difficult to make a prediction, since all classes will be similar.
+17. Number of Epochs and when to increase them :- 
+The number of epochs is slowly increased to see if the accuracy is increasing. It can be increased upto a point where the accuracy and loss keeps fluctuating.
+18. When to add validation checks :-
+At this stage of the network, validation chceks can be added at each epoch. Now both the training accuracy and the validation accuracy is observed. 
+19. DropOut :-
+Dropout is a regularization technique used to prevent overfitting.
+20. When do we introduce DropOut, or when do we know we have some overfitting :-
+Dropout is introduced in the netowrk when the training accuracy and the validation accuracy differs a lot(overfitting).
+21. Batch Size, and effects of batch size :-
+22. Learning Rate :-
+The learning rate determines to what extent newly acquired information replaces the old information. Usually learning must decrease while training the model.
+23. LR schedule and concept behind it :-
+The learning rate is fixed at a value between 0 and 1, at the start of the network. This value is determined by trail and error. It cannot be too high because it will make the learning jump over minima and also a too low learning rate will either take too long to converge or get stuck in an undesirable local minima. Also it is gradually decreased by a value after each epoch. This learning rate scheduler is passed along the model compiplation. 
+24. Adam vs SGD :- 
+The suitable and more efficient optimizer is choosen. Usually Adam is more efficient than SGD.
+
+
+
+
+
+
