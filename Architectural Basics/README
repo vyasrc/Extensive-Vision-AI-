@@ -1,3 +1,5 @@
+Steps:-
+
 1. Image normalization(Pixel Normalization):-
 Pixels are normalized between 0 and 1 before the model is defined.
 2. How many layers:-
